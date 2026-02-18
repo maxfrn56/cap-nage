@@ -202,8 +202,14 @@ export default function HomePage() {
               Une approche humaine
             </Title>
             <div className="grid lg:grid-cols-2 gap-12 lg:gap-16 items-center">
-              <div className="relative aspect-[4/3] rounded-2xl overflow-hidden border-4 border-cream shadow-soft bg-cream">
-                <Image src="/images/human-approche.jpg" alt="Une approche humaine" fill className="object-cover" sizes="(max-width: 1024px) 100vw, 50vw" />
+              <div className="group relative aspect-[4/3] rounded-2xl overflow-hidden border-4 border-cream shadow-soft bg-cream">
+                <Image
+                  src="/images/human-approche.jpg"
+                  alt="Une approche humaine"
+                  fill
+                  className="object-cover grayscale transition-all duration-500 ease-out group-hover:grayscale-0"
+                  sizes="(max-width: 1024px) 100vw, 50vw"
+                />
               </div>
               <div>
                 <p className="font-raleway text-cyan leading-loose text-lg max-w-md space-y-4">

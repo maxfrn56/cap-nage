@@ -18,10 +18,38 @@ const containerVariants = {
 
 export default function ContactPage() {
   const [sent, setSent] = useState(false);
+  const [loading, setLoading] = useState(false);
+  const [error, setError] = useState<string | null>(null);
 
-  const handleSubmit = (e: React.FormEvent) => {
+  const handleSubmit = async (e: React.FormEvent<HTMLFormElement>) => {
     e.preventDefault();
-    setSent(true);
+    setError(null);
+    setLoading(true);
+    const form = e.currentTarget;
+    const formData = {
+      prenom: (form.elements.namedItem("prenom") as HTMLInputElement).value,
+      nom: (form.elements.namedItem("nom") as HTMLInputElement).value,
+      email: (form.elements.namedItem("email") as HTMLInputElement).value,
+      message: (form.elements.namedItem("message") as HTMLTextAreaElement).value,
+    };
+    try {
+      const res = await fetch("/api/contact", {
+        method: "POST",
+        headers: { "Content-Type": "application/json" },
+        body: JSON.stringify(formData),
+      });
+      const data = await res.json().catch(() => ({}));
+      if (!res.ok) {
+        setError(data.error ?? "Une erreur est survenue. Réessayez.");
+        return;
+      }
+      setSent(true);
+      form.reset();
+    } catch {
+      setError("Une erreur est survenue. Réessayez.");
+    } finally {
+      setLoading(false);
+    }
   };
 
   return (
@@ -168,6 +196,11 @@ export default function ContactPage() {
                       className="w-full px-4 py-3 rounded-xl border-2 border-azur/40 bg-white text-cyan font-raleway focus:border-indigo focus:outline-none focus:ring-2 focus:ring-indigo/20 transition-colors resize-y"
                     />
                   </div>
+                  {error && (
+                    <div className="rounded-2xl bg-red-50 border-2 border-red-200 p-4 text-center">
+                      <p className="font-raleway text-red-700 text-sm">{error}</p>
+                    </div>
+                  )}
                   {sent ? (
                     <div className="rounded-2xl bg-azur/30 border-2 border-indigo/20 p-6 text-center">
                       <p className="font-radley text-lg text-indigo mb-1">Message envoyé</p>
@@ -176,8 +209,8 @@ export default function ContactPage() {
                       </p>
                     </div>
                   ) : (
-                    <Button type="submit" variant="primary" size="lg">
-                      Envoyer le message
+                    <Button type="submit" variant="primary" size="lg" disabled={loading}>
+                      {loading ? "Envoi en cours…" : "Envoyer le message"}
                     </Button>
                   )}
                 </form>
