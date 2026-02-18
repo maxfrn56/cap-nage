@@ -1,0 +1,276 @@
+"use client";
+
+import { useRef } from "react";
+import Image from "next/image";
+import { motion, useScroll, useTransform } from "framer-motion";
+import { Container } from "@/components/Container";
+import { Section } from "@/components/Section";
+import { Title } from "@/components/Title";
+import { Button } from "@/components/Button";
+import { PrestationsCarousel } from "@/components/PrestationsCarousel";
+
+const valeurs = [
+  {
+    title: "Alignement",
+    description:
+      "Chaque séance est pensée pour s'adapter à vos objectifs et à votre rythme. Nous avançons ensemble vers un équilibre entre corps et bien-être.",
+    image: "/images/alignement.jpg",
+    imageLeft: true,
+  },
+  {
+    title: "Présence",
+    description:
+      "L'eau invite à l'instant présent. Je vous accompagne pour développer une conscience du corps et une détente profonde en milieu aquatique.",
+    image: "/images/presence.jpg",
+    imageLeft: false,
+  },
+  {
+    title: "Intégration",
+    description:
+      "Les bienfaits des séances se prolongent au quotidien. Mon approche vise à intégrer la confiance et le bien-être bien au-delà du bassin.",
+    image: "/images/integration.jpg",
+    imageLeft: true,
+  },
+];
+
+const temoignages = [
+  { quote: "Un accompagnement bienveillant qui m'a redonné confiance dans l'eau. Je recommande vivement.", author: "Marie L." },
+  { quote: "Les séances enfants sont parfaites : ludiques et rassurantes. Mon fils a progressé en quelques semaines.", author: "Thomas D." },
+  { quote: "Le yoga aquatique est une révélation. Je me sens détendue et en harmonie après chaque séance.", author: "Sophie M." },
+];
+
+export default function HomePage() {
+  const heroRef = useRef<HTMLDivElement>(null);
+  const approcheRef = useRef<HTMLDivElement>(null);
+  const prestationsRef = useRef<HTMLDivElement>(null);
+  const temoignagesRef = useRef<HTMLDivElement>(null);
+  const ctaRef = useRef<HTMLDivElement>(null);
+
+  const { scrollYProgress: heroProgress } = useScroll({
+    target: heroRef,
+    offset: ["start start", "end start"],
+  });
+  const { scrollYProgress: approcheProgress } = useScroll({
+    target: approcheRef,
+    offset: ["start start", "end start"],
+  });
+  const { scrollYProgress: prestationsProgress } = useScroll({
+    target: prestationsRef,
+    offset: ["start start", "end start"],
+  });
+  const { scrollYProgress: temoignagesProgress } = useScroll({
+    target: temoignagesRef,
+    offset: ["start start", "end start"],
+  });
+  const { scrollYProgress: ctaProgress } = useScroll({
+    target: ctaRef,
+    offset: ["start start", "end start"],
+  });
+
+  const whaleYLeft = useTransform(heroProgress, [0, 1], [72, -72]);
+  const whaleYRight = useTransform(heroProgress, [0, 1], [-72, 72]);
+  const whaleApprocheL = useTransform(approcheProgress, [0, 0.5, 1], [48, -24, -48]);
+  const whaleApprocheR = useTransform(approcheProgress, [0, 0.5, 1], [-48, 24, 48]);
+  const whalePrestationsL = useTransform(prestationsProgress, [0, 1], [56, -56]);
+  const whalePrestationsR = useTransform(prestationsProgress, [0, 1], [-56, 56]);
+  const whaleTemoignagesL = useTransform(temoignagesProgress, [0, 1], [48, -48]);
+  const whaleTemoignagesR = useTransform(temoignagesProgress, [0, 1], [-48, 48]);
+  const whaleCtaL = useTransform(ctaProgress, [0, 1], [40, -40]);
+  const whaleCtaR = useTransform(ctaProgress, [0, 1], [-40, 40]);
+
+  return (
+    <>
+      {/* Hero : pleine hauteur d'écran, logo centré, baleines de chaque côté */}
+      <div ref={heroRef}>
+        <Section variant="azur" animate={false} className="min-h-screen flex flex-col items-center justify-center pt-24 pb-16 overflow-hidden relative">
+          <div className="flex-1 flex flex-row items-center justify-center w-full max-w-6xl mx-auto gap-6 md:gap-10 lg:gap-14 px-4">
+            <motion.div style={{ y: whaleYLeft }} className="hidden sm:flex flex-shrink-0 items-center justify-end w-32 md:w-44 lg:w-52">
+              <Image
+                src="/images/baleine-noir.svg"
+                alt=""
+                width={296}
+                height={217}
+                className="w-full h-auto -scale-x-100"
+                aria-hidden
+              />
+            </motion.div>
+            <div className="flex flex-col items-center justify-center flex-shrink-0">
+              <Image
+                src="/images/logo.png"
+                alt="Cap'Nage"
+                width={280}
+                height={120}
+                className="w-48 sm:w-56 lg:w-64 h-auto"
+                priority
+              />
+              <p className="font-raleway text-cyan text-center text-lg sm:text-xl mt-4 max-w-md">
+                Bien-être en milieu aquatique
+              </p>
+              <div className="flex flex-wrap gap-4 mt-8 justify-center">
+                <Button href="/reservation" variant="primary" size="lg">Réserver un créneau</Button>
+                <Button href="/prestations" variant="outline" size="lg">Choisissez votre activité</Button>
+              </div>
+            </div>
+            <motion.div style={{ y: whaleYRight }} className="hidden sm:flex flex-shrink-0 items-center justify-start w-32 md:w-44 lg:w-52">
+              <Image
+                src="/images/baleine-noir.svg"
+                alt=""
+                width={296}
+                height={217}
+                className="w-full h-auto"
+                aria-hidden
+              />
+            </motion.div>
+          </div>
+          {/* Vague animée en bas du hero */}
+          <div className="absolute bottom-0 left-0 right-0 w-full h-20 sm:h-28 flex items-end pointer-events-none">
+            <svg
+              viewBox="0 0 1200 120"
+              preserveAspectRatio="none"
+              className="w-full h-full text-white animate-wave-move flex-shrink-0"
+              style={{ minHeight: "80px", width: "110%", marginLeft: "-5%" }}
+            >
+              <path
+                fill="currentColor"
+                d="M0,60 C300,120 600,0 900,60 C1050,90 1150,90 1200,60 L1200,120 L0,120 Z"
+                opacity="0.6"
+              />
+              <path
+                fill="currentColor"
+                d="M0,80 C250,40 550,100 900,70 C1050,60 1150,50 1200,70 L1200,120 L0,120 Z"
+                opacity="0.35"
+              />
+            </svg>
+          </div>
+        </Section>
+      </div>
+
+      <Section variant="azur" animate>
+        <div ref={approcheRef} className="relative">
+          <Container>
+            <div className="pt-8 sm:pt-10 border-t border-indigo/25 max-w-2xl mx-auto" aria-hidden />
+          </Container>
+          <motion.div style={{ y: whaleApprocheL }} className="absolute left-2 md:left-6 top-1/4 w-20 md:w-28 opacity-40 pointer-events-none hidden sm:block">
+            <Image src="/images/baleine-noir.svg" alt="" width={296} height={217} className="w-full h-auto -scale-x-100" aria-hidden />
+          </motion.div>
+          <motion.div style={{ y: whaleApprocheR }} className="absolute right-2 md:right-6 bottom-1/4 w-20 md:w-28 opacity-40 pointer-events-none hidden sm:block">
+            <Image src="/images/baleine-noir.svg" alt="" width={296} height={217} className="w-full h-auto" aria-hidden />
+          </motion.div>
+          <Container>
+            <Title as="h2" subtitle="L'humain au cœur de chaque séance." align="center" className="mb-10 sm:mb-14">
+              Une approche humaine
+            </Title>
+            <div className="grid lg:grid-cols-2 gap-12 lg:gap-16 items-center">
+              <div className="relative aspect-[4/3] rounded-2xl overflow-hidden border-4 border-cream shadow-soft bg-cream">
+                <Image src="/images/human-approche.jpg" alt="Une approche humaine" fill className="object-cover" sizes="(max-width: 1024px) 100vw, 50vw" />
+              </div>
+              <div>
+                <p className="font-raleway text-cyan leading-loose text-lg max-w-md space-y-4">
+                  Maître-nageuse sauveteur indépendante, j&apos;accompagne enfants et adultes dans leur rapport à l&apos;eau. Mon objectif : que chaque séance soit un pas de plus vers la confiance, le plaisir et le bien-être en milieu aquatique.
+                </p>
+                <Button href="/qui-suis-je" variant="primary" size="md" className="mt-8">En savoir plus</Button>
+              </div>
+            </div>
+          </Container>
+        </div>
+      </Section>
+
+      <Section variant="azur" animate>
+        <div ref={prestationsRef} className="relative">
+          <motion.div style={{ y: whalePrestationsL }} className="absolute left-2 md:left-8 top-8 w-16 md:w-24 opacity-30 pointer-events-none hidden sm:block">
+            <Image src="/images/baleine-noir.svg" alt="" width={296} height={217} className="w-full h-auto -scale-x-100" aria-hidden />
+          </motion.div>
+          <motion.div style={{ y: whalePrestationsR }} className="absolute right-2 md:right-8 bottom-8 w-16 md:w-24 opacity-30 pointer-events-none hidden sm:block">
+            <Image src="/images/baleine-noir.svg" alt="" width={296} height={217} className="w-full h-auto" aria-hidden />
+          </motion.div>
+          <Container>
+            <div className="pt-8 sm:pt-10 border-t border-indigo/25 max-w-2xl mx-auto" aria-hidden />
+            <Title as="h2" subtitle="Des prestations adaptées à vos objectifs et à votre rythme." className="text-center mb-4">
+              Prestations
+            </Title>
+          </Container>
+          <PrestationsCarousel />
+        </div>
+      </Section>
+
+      <Section variant="azur" animate className="px-0">
+        <Container>
+          <div className="pt-8 sm:pt-10 border-t border-indigo/25 max-w-2xl mx-auto" aria-hidden />
+          <Title as="h2" subtitle="Ce qui guide ma pratique." align="center" className="mb-12 sm:mb-16 mt-8 sm:mt-10">
+            Valeurs
+          </Title>
+        </Container>
+        {/* 3 blocs pleine largeur : image 50 % + texte 50 % */}
+        <div className="w-full">
+          {valeurs.map((v) => (
+            <div
+              key={v.title}
+              className={`grid grid-cols-1 md:grid-cols-2 w-full min-h-[320px] md:min-h-[420px] ${v.imageLeft ? "" : "md:grid-flow-dense"}`}
+            >
+              {/* Image : moitié écran, sans cadre */}
+              <div className={`relative w-full h-72 md:h-auto md:min-h-[420px] ${v.imageLeft ? "md:col-start-1" : "md:col-start-2"}`}>
+                <Image
+                  src={v.image}
+                  alt={v.title}
+                  fill
+                  className="object-cover w-full h-full"
+                  sizes="(max-width: 768px) 100vw, 50vw"
+                />
+              </div>
+              {/* Texte : moitié écran */}
+              <div className={`flex flex-col justify-center px-6 sm:px-10 lg:px-16 py-12 md:py-16 bg-white ${v.imageLeft ? "md:col-start-2" : "md:col-start-1 md:row-start-1"}`}>
+                <h3 className="font-radley text-2xl sm:text-3xl text-indigo mb-4">{v.title}</h3>
+                <p className="font-raleway text-cyan leading-relaxed text-lg mb-8">{v.description}</p>
+                <Button href="/reservation" variant="primary" size="md" className="w-fit">Réserver</Button>
+              </div>
+            </div>
+          ))}
+        </div>
+      </Section>
+
+      <Section variant="azur" animate>
+        <div ref={temoignagesRef} className="relative">
+          <motion.div style={{ y: whaleTemoignagesL }} className="absolute left-2 md:left-8 top-8 w-16 md:w-24 opacity-30 pointer-events-none hidden sm:block">
+            <Image src="/images/baleine-noir.svg" alt="" width={296} height={217} className="w-full h-auto -scale-x-100" aria-hidden />
+          </motion.div>
+          <motion.div style={{ y: whaleTemoignagesR }} className="absolute right-2 md:right-8 bottom-8 w-16 md:w-24 opacity-30 pointer-events-none hidden sm:block">
+            <Image src="/images/baleine-noir.svg" alt="" width={296} height={217} className="w-full h-auto" aria-hidden />
+          </motion.div>
+          <Container>
+            <Title as="h2" subtitle="Ils ont partagé leur expérience." align="center" className="mb-12">
+              Témoignages
+            </Title>
+            <div className="grid md:grid-cols-3 gap-8">
+              {temoignages.map((t) => (
+                <blockquote key={t.author} className="rounded-2xl bg-white p-8 shadow-soft border border-indigo/5">
+                  <p className="font-raleway text-cyan italic leading-relaxed mb-4">&ldquo;{t.quote}&rdquo;</p>
+                  <cite className="font-raleway text-indigo text-sm not-italic">— {t.author}</cite>
+                </blockquote>
+              ))}
+            </div>
+          </Container>
+        </div>
+      </Section>
+
+      <Section id="cta" variant="azur" animate={false} wave="cyan" className="relative overflow-hidden">
+        <div ref={ctaRef} className="relative">
+          <motion.div style={{ y: whaleCtaL }} className="absolute left-4 md:left-12 top-1/2 -translate-y-1/2 w-24 md:w-32 opacity-40 pointer-events-none hidden sm:block">
+            <Image src="/images/baleine-noir.svg" alt="" width={296} height={217} className="w-full h-auto -scale-x-100" aria-hidden />
+          </motion.div>
+          <motion.div style={{ y: whaleCtaR }} className="absolute right-4 md:right-12 top-1/2 -translate-y-1/2 w-24 md:w-32 opacity-40 pointer-events-none hidden sm:block">
+            <Image src="/images/baleine-noir.svg" alt="" width={296} height={217} className="w-full h-auto" aria-hidden />
+          </motion.div>
+          <Container className="py-16 sm:py-20 text-center">
+            <Title as="h2" subtitle="Prêt à plonger ?" align="center" className="mb-8">
+              Réservez votre séance
+            </Title>
+            <div className="flex flex-wrap gap-4 justify-center">
+              <Button href="/reservation" variant="primary" size="lg">Réserver un créneau</Button>
+              <Button href="/contact" variant="outline" size="lg">Nous contacter</Button>
+            </div>
+          </Container>
+        </div>
+      </Section>
+    </>
+  );
+}
