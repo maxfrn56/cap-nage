@@ -1,6 +1,6 @@
 "use client";
 
-import { useRef } from "react";
+import { useRef, useState, useEffect } from "react";
 import Image from "next/image";
 import { motion, useScroll, useTransform } from "framer-motion";
 import { Container } from "@/components/Container";
@@ -69,6 +69,43 @@ export default function HomePage() {
 
   const whaleYLeft = useTransform(heroProgress, [0, 1], [72, -72]);
   const whaleYRight = useTransform(heroProgress, [0, 1], [-72, 72]);
+
+  const [waveFadeProgress, setWaveFadeProgress] = useState(0);
+  const [isAtTop, setIsAtTop] = useState(true);
+  const waveFadedRef = useRef(false);
+  const accumulatedWheelRef = useRef(0);
+
+  useEffect(() => {
+    const handleScroll = () => {
+      const atTop = window.scrollY <= 0;
+      setIsAtTop(atTop);
+      if (!atTop) {
+        waveFadedRef.current = false;
+        accumulatedWheelRef.current = 0;
+        setWaveFadeProgress(0);
+      }
+    };
+    window.addEventListener("scroll", handleScroll, { passive: true });
+    handleScroll();
+    return () => window.removeEventListener("scroll", handleScroll);
+  }, []);
+
+  useEffect(() => {
+    const handleWheel = (e: WheelEvent) => {
+      if (window.scrollY > 0) return;
+      if (waveFadedRef.current) return;
+      e.preventDefault();
+      accumulatedWheelRef.current += e.deltaY;
+      const progress = Math.min(1, Math.max(0, accumulatedWheelRef.current / 400));
+      setWaveFadeProgress(progress);
+      if (progress >= 1) waveFadedRef.current = true;
+    };
+    window.addEventListener("wheel", handleWheel, { passive: false });
+    return () => window.removeEventListener("wheel", handleWheel);
+  }, []);
+
+  const waveOpacity = isAtTop ? 1 - waveFadeProgress : 0;
+
   const whaleApprocheL = useTransform(approcheProgress, [0, 0.5, 1], [48, -24, -48]);
   const whaleApprocheR = useTransform(approcheProgress, [0, 0.5, 1], [-48, 24, 48]);
   const whalePrestationsL = useTransform(prestationsProgress, [0, 1], [56, -56]);
@@ -122,8 +159,12 @@ export default function HomePage() {
               />
             </motion.div>
           </div>
-          {/* Vague animée en bas du hero */}
-          <div className="absolute bottom-0 left-0 right-0 w-full h-20 sm:h-28 flex items-end pointer-events-none">
+          {/* Vague animée en bas du hero : disparaît au premier scroll, puis la page défile */}
+          <motion.div
+            style={{ opacity: waveOpacity }}
+            transition={{ duration: 0.6, ease: [0.25, 0.46, 0.45, 0.94] }}
+            className="absolute bottom-0 left-0 right-0 w-full h-20 sm:h-28 flex items-end pointer-events-none"
+          >
             <svg
               viewBox="0 0 1200 120"
               preserveAspectRatio="none"
@@ -141,7 +182,7 @@ export default function HomePage() {
                 opacity="0.35"
               />
             </svg>
-          </div>
+          </motion.div>
         </Section>
       </div>
 
@@ -237,16 +278,38 @@ export default function HomePage() {
             <Image src="/images/baleine-noir.svg" alt="" width={296} height={217} className="w-full h-auto" aria-hidden />
           </motion.div>
           <Container>
-            <Title as="h2" subtitle="Ils ont partagé leur expérience." align="center" className="mb-12">
+            <Title as="h2" subtitle="Ils ont partagé leur expérience." align="center" className="mb-14 sm:mb-16">
               Témoignages
             </Title>
-            <div className="grid md:grid-cols-3 gap-8">
-              {temoignages.map((t) => (
-                <blockquote key={t.author} className="rounded-2xl bg-white p-8 shadow-soft border border-indigo/5">
-                  <p className="font-raleway text-cyan italic leading-relaxed mb-4">&ldquo;{t.quote}&rdquo;</p>
-                  <cite className="font-raleway text-indigo text-sm not-italic">— {t.author}</cite>
-                </blockquote>
-              ))}
+            <div className="grid md:grid-cols-3 gap-6 lg:gap-8 items-stretch">
+              {temoignages.map((t, i) => {
+                const isFeatured = i === 1;
+                return (
+                  <motion.blockquote
+                    key={t.author}
+                    initial={{ opacity: 0, y: 20 }}
+                    whileInView={{ opacity: 1, y: 0 }}
+                    viewport={{ once: true, margin: "-40px" }}
+                    transition={{ duration: 0.5, delay: i * 0.1 }}
+                    className={`group relative flex flex-col rounded-2xl bg-white p-8 lg:p-10 shadow-soft border-l-4 border-indigo overflow-hidden transition-all duration-300 hover:shadow-soft-hover hover:-translate-y-1 ${isFeatured ? "md:-mt-4 md:mb-4 md:shadow-soft-hover md:border-indigo/90" : ""}`}
+                  >
+                    <span className="absolute top-6 right-6 font-radley text-7xl lg:text-8xl text-indigo/10 leading-none select-none" aria-hidden>
+                      "
+                    </span>
+                    <p className="font-raleway text-cyan text-base lg:text-lg leading-relaxed mb-8 relative z-10 pr-8">
+                      {t.quote}
+                    </p>
+                    <div className="mt-auto flex items-center gap-4 relative z-10">
+                      <span className="flex h-12 w-12 shrink-0 items-center justify-center rounded-full bg-indigo/10 text-indigo font-radley text-lg font-medium">
+                        {t.author.charAt(0)}
+                      </span>
+                      <cite className="font-raleway text-indigo font-medium not-italic">
+                        {t.author}
+                      </cite>
+                    </div>
+                  </motion.blockquote>
+                );
+              })}
             </div>
           </Container>
         </div>
