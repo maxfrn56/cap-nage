@@ -1,8 +1,9 @@
 import { Metadata } from "next";
 
 export const metadata: Metadata = {
-  title: "Prestations | Cap'Nage – Bien-être en milieu aquatique",
-  description: "Natation, aquafitness, yoga aquatique, séances enfants. Forfaits et tarifs.",
+  title: "Prestations",
+  description:
+    "Séances individuelles, collectives et prestations particulières : natation, aquafitness, yoga aquatique, EVJF, anniversaire, brunch. Forfaits et tarifs.",
 };
 
 export default function PrestationsLayout({

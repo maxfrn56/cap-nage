@@ -1,8 +1,9 @@
 import { Metadata } from "next";
 
 export const metadata: Metadata = {
-  title: "Contact | Cap'Nage – Bien-être en milieu aquatique",
-  description: "Contactez Cap'Nage pour toute question ou réservation.",
+  title: "Contact",
+  description:
+    "Contactez Cap'Nage pour une question, un devis ou une réservation. Email et téléphone. Loire-Atlantique.",
 };
 
 export default function ContactLayout({

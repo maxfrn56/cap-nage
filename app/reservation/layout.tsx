@@ -1,8 +1,9 @@
 import { Metadata } from "next";
 
 export const metadata: Metadata = {
-  title: "Réservation | Cap'Nage – Bien-être en milieu aquatique",
-  description: "Réservez votre créneau de natation, aquafitness ou yoga aquatique.",
+  title: "Réservation",
+  description:
+    "Réservez votre créneau : cours de natation, aquafitness, yoga aquatique ou séance collective. Cap'Nage Loire-Atlantique.",
 };
 
 export default function ReservationLayout({

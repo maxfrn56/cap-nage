@@ -1,8 +1,9 @@
 import { Metadata } from "next";
 
 export const metadata: Metadata = {
-  title: "Évènements | Cap'Nage – Bien-être en milieu aquatique",
-  description: "Ateliers, stages et évènements en milieu aquatique.",
+  title: "Évènements",
+  description:
+    "Ateliers, stages et évènements Cap'Nage en milieu aquatique. Découvrez les prochaines dates en Loire-Atlantique.",
 };
 
 export default function EvenementsLayout({

@@ -8,9 +8,9 @@ import { AnchorNav } from "@/components/AnchorNav";
 import { ParallaxWhalesWrapper } from "@/components/ParallaxWhalesWrapper";
 
 export const metadata: Metadata = {
-  title: "Prestations | Cap'Nage – Bien-être en milieu aquatique",
+  title: "Prestations",
   description:
-    "Séances individuelles, séances collectives et prestations particulières. Découverte, perfectionnement, EVJF, anniversaire, brunch.",
+    "Séances individuelles, collectives et prestations particulières : découverte, perfectionnement, sport santé, EVJF, anniversaire, brunch. Forfaits et tarifs Cap'Nage.",
 };
 
 const subBlocsIndividuelles = [
@@ -30,7 +30,7 @@ const subBlocsParticulieres = [
   { title: "EVJF", image: "/images/evjf.jpg" },
   { title: "Anniversaire", image: "/images/anniversaire.jpg" },
   { title: "Dimanche Brunch", image: "/images/dimanche-brunch.jpg" },
-  { title: "Surveillance lors d'événement familial", image: "/images/surveillance.jpg" },
+  { title: "Surveillance lors d'événement familial", image: "/images/surveillance.JPG" },
 ];
 
 const forfaitsIndividuelles = [
