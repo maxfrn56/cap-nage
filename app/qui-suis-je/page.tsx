@@ -67,12 +67,26 @@ export default function QuiSuisJePage() {
                 <div className="h-1 w-10 rounded-full bg-indigo" />
                 <span className="font-raleway text-indigo text-sm uppercase tracking-wide">Présentation</span>
               </div>
-              <h2 className="font-radley text-2xl sm:text-3xl text-indigo mb-4">
-                Accompagner vers la confiance et le plaisir dans l&apos;eau
+              <h2 className="font-radley text-xl sm:text-2xl text-indigo mb-6">
+                Mais qui donc se cache derrière Cap&apos;nage&nbsp;?
               </h2>
-              <p className="font-raleway text-cyan leading-relaxed text-lg max-w-xl">
-                Maître-nageuse sauveteur indépendante, j&apos;accompagne enfants et adultes dans leur rapport à l&apos;eau. Mon objectif : que chaque séance soit un pas de plus vers la confiance, le plaisir et le bien-être en milieu aquatique.
-              </p>
+              <div className="font-raleway text-cyan leading-relaxed text-base sm:text-[0.9375rem] space-y-5 max-w-2xl">
+                <p>
+                  Alizée, un tit bout de femme rempli d&apos;énergie, de soleil dans le cœur et de blagues pas toujours drôles. J&apos;ai grandi en Loire-Atlantique entre la piscine et le bord de l&apos;océan, bercée par une famille de plongeurs depuis trois générations, mais aussi de récits de périple à la voile. Pour moi, le milieu aquatique fait partie intégrante de ma vie&nbsp;: natation, sauvetage côtier, voile, plongée-sous-marine, surf, tout, ou presque, y passe. Ma bouffée d&apos;oxygène, c&apos;est dans l&apos;eau que je la prends, là où toutes les pensées et tracas se dissipent.
+                </p>
+                <p>
+                  Un parcours scolaire et professionnel un peu chaotique, fait de remise en question et de formation&nbsp;; je ne passe pas mon diplôme de maître-nageur sauveteur tout de suite. Il faudra attendre les six saisons sur les plages, une première licence en langues étrangères et journalisme ainsi que quelques expériences professionnelles diverses à travers l&apos;Europe, pour me décider à passer le Cap.
+                </p>
+                <p>
+                  Pour moi, maître-nageur sauveteur, ce n&apos;est pas simplement l&apos;apprentissage en ligne droite, codifié de la natation dans une piscine. C&apos;est plutôt tout ce qui a rapport à l&apos;eau, le fait de rassembler autour de cet élément et ainsi de développer des sentiments et interactions variés avec le milieu aquatique.
+                </p>
+                <p>
+                  Alors au final, qui se trouve derrière Cap&apos;nage bien Être en milieu aquatique&nbsp;? Une petite fille de 5 ans au regard malicieux qui souhaite découvrir le monde et faire sortir les rayons de soleil de chaque personne qu&apos;elle rencontre. Avec un point de rassemblement, l&apos;EAU. Une soif inassouvie d&apos;apprendre et transmettre, qui pour ça continue de lire et se former sur divers sujets pour rendre Cap&apos;nage bien Être en milieu aquatique, le plus accessible et complet possible.
+                </p>
+                <p className="font-medium text-indigo/90">
+                  Le but ultime&nbsp;? Une vie saine et sereine où le milieu aquatique est un moyen d&apos;y parvenir et non un frein.
+                </p>
+              </div>
               <Button href="/contact" variant="primary" size="md" className="mt-8 w-fit">
                 Me contacter
               </Button>

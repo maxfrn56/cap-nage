@@ -198,25 +198,49 @@ export default function HomePage() {
             <Image src="/images/baleine-noir.svg" alt="" width={296} height={217} className="w-full h-auto" aria-hidden />
           </motion.div>
           <Container>
-            <Title as="h2" subtitle="L'humain au cœur de chaque séance." align="center" className="mb-10 sm:mb-14">
-              Une approche humaine
+            <Title as="h2" align="center" className="mb-10 sm:mb-14">
+              Cap&apos;Nage c&apos;est&nbsp;:
             </Title>
-            <div className="grid lg:grid-cols-2 gap-12 lg:gap-16 items-center">
+            {/* Ligne 1 : image à gauche, premier paragraphe à droite (alignés en haut) */}
+            <div className="grid lg:grid-cols-2 gap-8 lg:gap-12 items-start">
               <div className="group relative aspect-[4/3] rounded-2xl overflow-hidden border-4 border-cream shadow-soft bg-cream">
                 <Image
                   src="/images/human-approche.jpg"
-                  alt="Une approche humaine"
+                  alt="Cap'Nage c'est"
                   fill
                   className="object-cover grayscale transition-all duration-500 ease-out group-hover:grayscale-0"
                   sizes="(max-width: 1024px) 100vw, 50vw"
                 />
               </div>
-              <div>
-                <p className="font-raleway text-cyan leading-loose text-lg max-w-md space-y-4">
-                  Maître-nageuse sauveteur indépendante, j&apos;accompagne enfants et adultes dans leur rapport à l&apos;eau. Mon objectif : que chaque séance soit un pas de plus vers la confiance, le plaisir et le bien-être en milieu aquatique.
+              <div className="flex flex-col justify-center min-h-0">
+                <p className="font-raleway text-cyan leading-loose text-lg max-w-md">
+                  Cap&apos;nage provient de la contraction de «&nbsp;Capable de nager&nbsp;». Il est parfois dit&nbsp;: «&nbsp;c&apos;est trop tard pour moi d&apos;apprendre à nager&nbsp;», «&nbsp;Je suis nul(le)&nbsp;», «&nbsp;J&apos;ai peur, cela est peine perdue&nbsp;». Or, tout cela est faux&nbsp;! Il n&apos;y a pas d&apos;âge pour apprendre à nager, aucune peur n&apos;est insurmontable, l&apos;apprentissage de la natation n&apos;est pas si compliqué. Chaque problématique à sa solution. Et pour cela, Cap&apos;nage s&apos;adapte à chacun, en prenant le temps, avec bienveillance et différentes méthodes d&apos;apprentissage.
                 </p>
-                <Button href="/qui-suis-je" variant="primary" size="md" className="mt-8">En savoir plus</Button>
               </div>
+            </div>
+            {/* Ligne 2 : deuxième paragraphe à gauche, image à droite */}
+            <div className="grid lg:grid-cols-2 gap-8 lg:gap-12 items-start mt-12 lg:mt-16">
+              <div className="flex flex-col justify-center min-h-0 order-2 lg:order-1">
+                <p className="font-raleway text-cyan leading-loose text-lg max-w-md">
+                  Bien Être en milieu aquatique, est l&apos;envie que chacun d&apos;entre vous se sente bien dans n&apos;importe quel milieu aquatique, avec vos objectifs variés. Que ce soit à l&apos;Océan, à la piscine, pour apprendre, ou bien performer, une reprise sportive, une activité douce pour maladie, le surf, sauvetage ou simplement par plaisir, tout est possible. Et cela dans la bonne humeur, avec des accompagnements développés en fonction de vous, qui peuvent être complétés par d&apos;autres suivis sportifs, vie quotidienne,&nbsp;…
+                </p>
+              </div>
+              <div className="group relative aspect-[4/3] rounded-2xl overflow-hidden border-4 border-cream shadow-soft bg-cream order-1 lg:order-2">
+                <Image
+                  src="/images/alignement.jpg"
+                  alt="Bien être en milieu aquatique"
+                  fill
+                  className="object-cover grayscale transition-all duration-500 ease-out group-hover:grayscale-0"
+                  sizes="(max-width: 1024px) 100vw, 50vw"
+                />
+              </div>
+            </div>
+            {/* Citation et bouton */}
+            <div className="mt-12 lg:mt-16 text-center">
+              <p className="font-raleway text-cyan leading-loose text-lg max-w-2xl mx-auto font-medium mb-8">
+                Il n&apos;y a pas de limites, hormis celles que vous vous imposez&nbsp;!
+              </p>
+              <Button href="/qui-suis-je" variant="primary" size="md">En savoir plus</Button>
             </div>
           </Container>
         </div>
