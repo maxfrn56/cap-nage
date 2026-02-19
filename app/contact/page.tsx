@@ -6,6 +6,7 @@ import { Container } from "@/components/Container";
 import { Section } from "@/components/Section";
 import { Title } from "@/components/Title";
 import { Button } from "@/components/Button";
+import { ParallaxWhalesWrapper } from "@/components/ParallaxWhalesWrapper";
 
 const containerVariants = {
   hidden: { opacity: 0, y: 20 },
@@ -53,7 +54,7 @@ export default function ContactPage() {
   };
 
   return (
-    <>
+    <ParallaxWhalesWrapper>
       <Section variant="azur" animate={false} className="pt-24 pb-0">
         <Container>
           <Title
@@ -237,6 +238,6 @@ export default function ContactPage() {
           </motion.section>
         </Container>
       </Section>
-    </>
+    </ParallaxWhalesWrapper>
   );
 }

@@ -186,10 +186,13 @@ export default function HomePage() {
         </Section>
       </div>
 
-      <Section variant="azur" animate>
+      <Section variant="azur" animate className="px-0">
         <div ref={approcheRef} className="relative">
           <Container>
             <div className="pt-8 sm:pt-10 border-t border-indigo/25 max-w-2xl mx-auto" aria-hidden />
+            <Title as="h2" align="center" className="mb-12 sm:mb-16 mt-8 sm:mt-10">
+              Cap&apos;Nage c&apos;est&nbsp;:
+            </Title>
           </Container>
           <motion.div style={{ y: whaleApprocheL }} className="absolute left-2 md:left-6 top-1/4 w-20 md:w-28 opacity-40 pointer-events-none hidden sm:block">
             <Image src="/images/baleine-noir.svg" alt="" width={296} height={217} className="w-full h-auto -scale-x-100" aria-hidden />
@@ -197,52 +200,39 @@ export default function HomePage() {
           <motion.div style={{ y: whaleApprocheR }} className="absolute right-2 md:right-6 bottom-1/4 w-20 md:w-28 opacity-40 pointer-events-none hidden sm:block">
             <Image src="/images/baleine-noir.svg" alt="" width={296} height={217} className="w-full h-auto" aria-hidden />
           </motion.div>
-          <Container>
-            <Title as="h2" align="center" className="mb-10 sm:mb-14">
-              Cap&apos;Nage c&apos;est&nbsp;:
-            </Title>
-            {/* Ligne 1 : image à gauche, premier paragraphe à droite (alignés en haut) */}
-            <div className="grid lg:grid-cols-2 gap-8 lg:gap-12 items-start">
-              <div className="group relative aspect-[4/3] rounded-2xl overflow-hidden border-4 border-cream shadow-soft bg-cream">
-                <Image
-                  src="/images/human-approche.jpg"
-                  alt="Cap'Nage c'est"
-                  fill
-                  className="object-cover grayscale transition-all duration-500 ease-out group-hover:grayscale-0"
-                  sizes="(max-width: 1024px) 100vw, 50vw"
-                />
-              </div>
-              <div className="flex flex-col justify-center min-h-0">
-                <p className="font-raleway text-cyan leading-loose text-lg max-w-md">
-                  Cap&apos;nage provient de la contraction de «&nbsp;Capable de nager&nbsp;». Il est parfois dit&nbsp;: «&nbsp;c&apos;est trop tard pour moi d&apos;apprendre à nager&nbsp;», «&nbsp;Je suis nul(le)&nbsp;», «&nbsp;J&apos;ai peur, cela est peine perdue&nbsp;». Or, tout cela est faux&nbsp;! Il n&apos;y a pas d&apos;âge pour apprendre à nager, aucune peur n&apos;est insurmontable, l&apos;apprentissage de la natation n&apos;est pas si compliqué. Chaque problématique à sa solution. Et pour cela, Cap&apos;nage s&apos;adapte à chacun, en prenant le temps, avec bienveillance et différentes méthodes d&apos;apprentissage.
-                </p>
-              </div>
+          {/* Image à gauche (légèrement décollée du bord), texte à droite — alignés en haut */}
+          <div className="grid grid-cols-1 md:grid-cols-[minmax(280px,42%)_1fr] w-full min-h-[360px] md:min-h-[480px] pl-4 md:pl-8 items-start">
+            <div className="relative w-full h-80 md:h-full md:min-h-[480px]">
+              <Image
+                src="/images/lifeguard.JPG"
+                alt="Bien être en milieu aquatique"
+                fill
+                className="object-contain object-left object-top"
+                sizes="(max-width: 768px) 100vw, 42vw"
+              />
             </div>
-            {/* Ligne 2 : deuxième paragraphe à gauche, image à droite */}
-            <div className="grid lg:grid-cols-2 gap-8 lg:gap-12 items-start mt-12 lg:mt-16">
-              <div className="flex flex-col justify-center min-h-0 order-2 lg:order-1">
-                <p className="font-raleway text-cyan leading-loose text-lg max-w-md">
-                  Bien Être en milieu aquatique, est l&apos;envie que chacun d&apos;entre vous se sente bien dans n&apos;importe quel milieu aquatique, avec vos objectifs variés. Que ce soit à l&apos;Océan, à la piscine, pour apprendre, ou bien performer, une reprise sportive, une activité douce pour maladie, le surf, sauvetage ou simplement par plaisir, tout est possible. Et cela dans la bonne humeur, avec des accompagnements développés en fonction de vous, qui peuvent être complétés par d&apos;autres suivis sportifs, vie quotidienne,&nbsp;…
-                </p>
-              </div>
-              <div className="group relative aspect-[4/3] rounded-2xl overflow-hidden border-4 border-cream shadow-soft bg-cream order-1 lg:order-2">
-                <Image
-                  src="/images/alignement.jpg"
-                  alt="Bien être en milieu aquatique"
-                  fill
-                  className="object-cover grayscale transition-all duration-500 ease-out group-hover:grayscale-0"
-                  sizes="(max-width: 1024px) 100vw, 50vw"
-                />
-              </div>
-            </div>
-            {/* Citation et bouton */}
-            <div className="mt-12 lg:mt-16 text-center">
-              <p className="font-raleway text-cyan leading-loose text-lg max-w-2xl mx-auto font-medium mb-8">
+            <div className="flex flex-col justify-start pt-16 md:pt-28 pb-12 md:pb-16 px-6 sm:px-10 lg:px-16 overflow-visible">
+              <p className="font-raleway text-cyan leading-relaxed text-lg mb-6 mt-0">
+                Cap&apos;nage provient de la contraction de «&nbsp;Capable de nager&nbsp;». Il est parfois dit&nbsp;: «&nbsp;c&apos;est trop tard pour moi d&apos;apprendre à nager&nbsp;», «&nbsp;Je suis nul(le)&nbsp;», «&nbsp;J&apos;ai peur, cela est peine perdue&nbsp;». Or, tout cela est faux&nbsp;! Il n&apos;y a pas d&apos;âge pour apprendre à nager, aucune peur n&apos;est insurmontable, l&apos;apprentissage de la natation n&apos;est pas si compliqué. Chaque problématique à sa solution. Et pour cela, Cap&apos;nage s&apos;adapte à chacun, en prenant le temps, avec bienveillance et différentes méthodes d&apos;apprentissage.
+              </p>
+              <p className="font-raleway text-cyan leading-relaxed text-lg mb-8">
+                Bien Être en milieu aquatique, est l&apos;envie que chacun d&apos;entre vous se sente bien dans n&apos;importe quel milieu aquatique, avec vos objectifs variés. Que ce soit à l&apos;Océan, à la piscine, pour apprendre, ou bien performer, une reprise sportive, une activité douce pour maladie, le surf, sauvetage ou simplement par plaisir, tout est possible. Et cela dans la bonne humeur, avec des accompagnements développés en fonction de vous, qui peuvent être complétés par d&apos;autres suivis sportifs, vie quotidienne,&nbsp;…
+              </p>
+              <p className="font-raleway text-cyan leading-relaxed text-lg font-medium mb-8">
                 Il n&apos;y a pas de limites, hormis celles que vous vous imposez&nbsp;!
               </p>
-              <Button href="/qui-suis-je" variant="primary" size="md">En savoir plus</Button>
+              <Button href="/qui-suis-je" variant="primary" size="md" className="w-fit mb-8">En savoir plus</Button>
+              <div className="relative w-full max-w-[220px] aspect-[3/4] overflow-hidden ml-auto mr-20 md:mr-28 mt-16 md:mt-20">
+                <Image
+                  src="/images/ali-sauveteuse.JPG"
+                  alt="Alizée sauveteuse"
+                  fill
+                  className="object-cover"
+                  sizes="220px"
+                />
+              </div>
             </div>
-          </Container>
+          </div>
         </div>
       </Section>
 

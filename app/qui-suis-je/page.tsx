@@ -1,10 +1,12 @@
 "use client";
 
+import Image from "next/image";
 import { motion } from "framer-motion";
 import { Container } from "@/components/Container";
 import { Section } from "@/components/Section";
 import { Title } from "@/components/Title";
 import { Button } from "@/components/Button";
+import { ParallaxWhalesWrapper } from "@/components/ParallaxWhalesWrapper";
 
 const containerVariants = {
   hidden: { opacity: 0, y: 20 },
@@ -17,7 +19,7 @@ const containerVariants = {
 
 export default function QuiSuisJePage() {
   return (
-    <>
+    <ParallaxWhalesWrapper>
       <Section variant="azur" animate={false} className="pt-24 pb-0">
         <Container>
           <Title
@@ -42,12 +44,14 @@ export default function QuiSuisJePage() {
               className="lg:col-span-5 relative"
             >
               <div className="relative aspect-[3/4] max-w-md mx-auto lg:mx-0 rounded-3xl overflow-hidden shadow-soft-hover border-4 border-white/80">
-                <div className="absolute inset-0 bg-gradient-to-br from-azur via-azur-dark to-indigo/20" />
-                <div className="absolute inset-0 flex items-center justify-center p-8">
-                  <span className="font-raleway text-white/90 text-center text-sm sm:text-base">
-                    Photo portrait à ajouter
-                  </span>
-                </div>
+                <Image
+                  src="/images/alizee.jpeg"
+                  alt="Alizée - Cap'Nage bien être en milieu aquatique"
+                  fill
+                  className="object-cover object-top"
+                  sizes="(max-width: 1024px) 100vw, 42vw"
+                  priority
+                />
                 <div className="absolute bottom-0 left-0 right-0 h-24 bg-gradient-to-t from-black/40 to-transparent" />
               </div>
               <div className="absolute -bottom-3 -right-3 lg:right-4 w-24 h-24 rounded-2xl bg-indigo/90 flex items-center justify-center shadow-soft border-2 border-white" aria-hidden>
@@ -177,6 +181,6 @@ export default function QuiSuisJePage() {
           </motion.section>
         </Container>
       </Section>
-    </>
+    </ParallaxWhalesWrapper>
   );
 }

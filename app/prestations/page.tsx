@@ -5,6 +5,7 @@ import { Section } from "@/components/Section";
 import { Title } from "@/components/Title";
 import { Button } from "@/components/Button";
 import { AnchorNav } from "@/components/AnchorNav";
+import { ParallaxWhalesWrapper } from "@/components/ParallaxWhalesWrapper";
 
 export const metadata: Metadata = {
   title: "Prestations | Cap'Nage – Bien-être en milieu aquatique",
@@ -13,22 +14,22 @@ export const metadata: Metadata = {
 };
 
 const subBlocsIndividuelles = [
-  { title: "Découverte du milieu aquatique", image: "/images/decouverte.jpg" },
+  { title: "Découverte du milieu aquatique", image: "/images/decouverte-milieu-aqua.JPG" },
   { title: "Perfectionnement", image: "/images/perfectionnement.jpg" },
-  { title: "Préparations sportives", image: "/images/aquafitness.jpg" },
-  { title: "Sport Santé - Sport adapté", image: "/images/aquayoga.jpg" },
+  { title: "Préparations sportives", image: "/images/preparation-sportive.jpeg" },
+  { title: "Sport Santé - Sport adapté", image: "/images/sport-sante.jpg" },
 ];
 
 const subBlocsCollectives = [
   { title: "Séance Enfant", image: "/images/seance-enfant.jpg" },
   { title: "Séance Adulte", image: "/images/aquayoga.jpg" },
-  { title: "Séance Parents-Enfants", image: "/images/aquafitness.jpg" },
+  { title: "Séance Parents-Enfants", image: "/images/parent-enfant.jpg" },
 ];
 
 const subBlocsParticulieres = [
   { title: "EVJF", image: "/images/evjf.jpg" },
   { title: "Anniversaire", image: "/images/anniversaire.jpg" },
-  { title: "Dimanche Brunch", image: "/images/brunch.jpg" },
+  { title: "Dimanche Brunch", image: "/images/dimanche-brunch.jpg" },
   { title: "Surveillance lors d'événement familial", image: "/images/surveillance.jpg" },
 ];
 
@@ -95,7 +96,7 @@ function SectionHeader({ children }: { children: React.ReactNode }) {
 
 export default function PrestationsPage() {
   return (
-    <>
+    <ParallaxWhalesWrapper>
       <Section variant="azur" animate={false} className="pt-24 pb-0">
         <Container>
           <Title
@@ -332,6 +333,6 @@ export default function PrestationsPage() {
           </div>
         </Container>
       </Section>
-    </>
+    </ParallaxWhalesWrapper>
   );
 }

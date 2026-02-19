@@ -6,7 +6,7 @@ import Image from "next/image";
 const duration = 55;
 
 const prestations = [
-  { id: "prestations-particulieres", title: "Prestations particulières", image: "/images/aquafitness.jpg", href: "/prestations#prestations-particulieres" },
+  { id: "prestations-particulieres", title: "Prestations particulières", image: "/images/prestation-particulière.jpeg", href: "/prestations#prestations-particulieres" },
   { id: "seance-individuelle", title: "Séance individuelle", image: "/images/aquayoga.jpg", href: "/prestations#seance-individuelle" },
   { id: "seances-collectives", title: "Séances collectives", image: "/images/seance-enfant.jpg", href: "/prestations#seances-collectives" },
 ];
