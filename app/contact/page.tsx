@@ -232,8 +232,14 @@ export default function ContactPage() {
               <div className="h-1 w-8 rounded-full bg-indigo" />
               <h2 className="font-radley text-xl sm:text-2xl text-indigo">Où me trouver</h2>
             </div>
-            <div className="aspect-video max-w-4xl mx-auto rounded-2xl bg-white/80 border border-indigo/10 shadow-soft flex items-center justify-center text-cyan/70 font-raleway text-sm sm:text-base">
-              Carte Google Maps (placeholder) – Adresse à configurer
+            <div className="aspect-video max-w-4xl mx-auto rounded-2xl bg-white/80 border border-indigo/10 shadow-soft overflow-hidden">
+              <iframe
+                title="Carte Google Maps - 48 route Aritxague, 64600 Anglet"
+                src="https://www.google.com/maps?q=48+route+Aritxague+64600+Anglet&output=embed"
+                className="w-full h-full border-0"
+                loading="lazy"
+                referrerPolicy="no-referrer-when-downgrade"
+              />
             </div>
           </motion.section>
         </Container>
