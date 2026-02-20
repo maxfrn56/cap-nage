@@ -3,6 +3,7 @@ import "./globals.css";
 import { Navbar } from "@/components/Navbar";
 import { Footer } from "@/components/Footer";
 import { SmoothScroll } from "@/components/SmoothScroll";
+import { PageTransition } from "@/components/PageTransition";
 
 const siteUrl = process.env.NEXT_PUBLIC_SITE_URL ?? "https://www.capnage.fr";
 
@@ -89,7 +90,9 @@ export default function RootLayout({
         />
         <SmoothScroll>
           <Navbar />
-          <main>{children}</main>
+          <main>
+            <PageTransition>{children}</PageTransition>
+          </main>
           <Footer />
         </SmoothScroll>
       </body>

@@ -37,11 +37,30 @@ export function Navbar() {
     <header
       className={`fixed top-0 left-0 right-0 z-50 transition-all duration-300 ${
         isScrolled
-          ? "bg-white/90 backdrop-blur-sm border-b border-azur/20"
+          ? "bg-white/90 md:bg-transparent backdrop-blur-sm border-b border-azur/20 md:border-transparent"
           : "bg-transparent border-b border-transparent"
       }`}
     >
-      <nav className="mx-auto max-w-6xl px-4 sm:px-6 lg:px-8 h-20 flex items-center justify-between md:grid md:grid-cols-3 md:items-center md:gap-4">
+      {/* Fond vague desktop : la navbar entière prend une forme ondulée */}
+      <div
+        aria-hidden
+        className={`hidden md:block pointer-events-none absolute inset-x-0 top-0 h-24 transition-opacity duration-300 ${
+          isScrolled ? "opacity-100" : "opacity-90"
+        }`}
+      >
+        <svg viewBox="0 0 1200 120" preserveAspectRatio="none" className="w-full h-full">
+          <path
+            fill="rgba(255,255,255,0.95)"
+            d="M0,0 H1200 V74 C1090,96 980,90 850,72 C710,52 590,84 470,102 C320,125 170,114 0,88 Z"
+          />
+          <path
+            fill="rgba(24,0,173,0.08)"
+            d="M0,0 H1200 V69 C1110,86 990,82 860,67 C720,52 600,78 500,90 C350,108 180,102 0,80 Z"
+          />
+        </svg>
+      </div>
+
+      <nav className="relative z-10 mx-auto max-w-6xl px-4 sm:px-6 lg:px-8 h-20 flex items-center justify-between md:grid md:grid-cols-3 md:items-center md:gap-4">
         <Link href="/" className="flex items-center gap-3 justify-self-start">
           <Image
             src="/images/logo.png"
@@ -120,32 +139,6 @@ export function Navbar() {
           </span>
         </button>
       </nav>
-
-      {/* Vague décorative desktop dans la navbar */}
-      <div
-        aria-hidden
-        className={`hidden md:block pointer-events-none absolute left-0 right-0 bottom-[-1px] h-5 overflow-hidden transition-opacity duration-300 ${
-          isScrolled ? "opacity-80" : "opacity-55"
-        }`}
-      >
-        <svg
-          viewBox="0 0 1200 120"
-          preserveAspectRatio="none"
-          className="w-[210%] h-full text-indigo/30 animate-wave-move"
-          style={{ marginLeft: "-55%" }}
-        >
-          <path
-            fill="currentColor"
-            d="M0,70 C220,20 460,110 680,70 C870,35 1050,95 1200,65 L1200,120 L0,120 Z"
-            opacity="0.55"
-          />
-          <path
-            fill="currentColor"
-            d="M0,85 C260,45 520,105 800,75 C980,55 1100,70 1200,60 L1200,120 L0,120 Z"
-            opacity="0.3"
-          />
-        </svg>
-      </div>
 
       <div
         className={`md:hidden overflow-hidden border-t border-indigo/10 bg-white/95 backdrop-blur-sm shadow-soft transition-all duration-300 ease-out ${
