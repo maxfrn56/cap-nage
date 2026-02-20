@@ -41,7 +41,7 @@ export function Navbar() {
           : "bg-transparent border-b border-transparent"
       }`}
     >
-      <nav className="mx-auto max-w-6xl px-4 sm:px-6 lg:px-8 h-20 grid grid-cols-3 items-center gap-4">
+      <nav className="mx-auto max-w-6xl px-4 sm:px-6 lg:px-8 h-20 flex items-center justify-between md:grid md:grid-cols-3 md:items-center md:gap-4">
         <Link href="/" className="flex items-center gap-3 justify-self-start">
           <Image
             src="/images/logo.png"
@@ -101,19 +101,38 @@ export function Navbar() {
           onClick={() => setIsMobileMenuOpen((v) => !v)}
           className="md:hidden justify-self-end inline-flex items-center justify-center w-11 h-11 rounded-xl border border-indigo/20 bg-white/80 text-indigo shadow-soft hover:bg-white transition-colors"
         >
-          <svg className="w-6 h-6" fill="none" viewBox="0 0 24 24" stroke="currentColor" aria-hidden>
-            {isMobileMenuOpen ? (
-              <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M6 18L18 6M6 6l12 12" />
-            ) : (
-              <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M4 7h16M4 12h16M4 17h16" />
-            )}
-          </svg>
+          <span className="relative block w-5 h-5" aria-hidden>
+            <span
+              className={`absolute left-0 top-0 h-0.5 w-5 rounded-full bg-current transition-all duration-300 ease-out ${
+                isMobileMenuOpen ? "translate-y-[9px] rotate-45" : ""
+              }`}
+            />
+            <span
+              className={`absolute left-0 top-[9px] h-0.5 w-5 rounded-full bg-current transition-all duration-300 ease-out ${
+                isMobileMenuOpen ? "opacity-0" : "opacity-100"
+              }`}
+            />
+            <span
+              className={`absolute left-0 top-[18px] h-0.5 w-5 rounded-full bg-current transition-all duration-300 ease-out ${
+                isMobileMenuOpen ? "-translate-y-[9px] -rotate-45" : ""
+              }`}
+            />
+          </span>
         </button>
       </nav>
 
-      {isMobileMenuOpen && (
-        <div className="md:hidden border-t border-indigo/10 bg-white/95 backdrop-blur-sm shadow-soft">
-          <div className="mx-auto max-w-6xl px-4 py-4 space-y-1">
+      <div
+        className={`md:hidden overflow-hidden border-t border-indigo/10 bg-white/95 backdrop-blur-sm shadow-soft transition-all duration-300 ease-out ${
+          isMobileMenuOpen
+            ? "max-h-[420px] opacity-100"
+            : "max-h-0 opacity-0 pointer-events-none border-transparent shadow-none"
+        }`}
+      >
+          <div
+            className={`mx-auto max-w-6xl px-4 py-4 space-y-1 transition-transform duration-300 ease-out ${
+              isMobileMenuOpen ? "translate-y-0" : "-translate-y-2"
+            }`}
+          >
             {links.map(({ href, label }) => {
               const active = isActive(href);
               return (
@@ -152,7 +171,6 @@ export function Navbar() {
             </div>
           </div>
         </div>
-      )}
     </header>
   );
 }
