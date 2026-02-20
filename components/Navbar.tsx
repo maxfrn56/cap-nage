@@ -121,6 +121,32 @@ export function Navbar() {
         </button>
       </nav>
 
+      {/* Vague décorative desktop dans la navbar */}
+      <div
+        aria-hidden
+        className={`hidden md:block pointer-events-none absolute left-0 right-0 bottom-[-1px] h-5 overflow-hidden transition-opacity duration-300 ${
+          isScrolled ? "opacity-80" : "opacity-55"
+        }`}
+      >
+        <svg
+          viewBox="0 0 1200 120"
+          preserveAspectRatio="none"
+          className="w-[210%] h-full text-indigo/30 animate-wave-move"
+          style={{ marginLeft: "-55%" }}
+        >
+          <path
+            fill="currentColor"
+            d="M0,70 C220,20 460,110 680,70 C870,35 1050,95 1200,65 L1200,120 L0,120 Z"
+            opacity="0.55"
+          />
+          <path
+            fill="currentColor"
+            d="M0,85 C260,45 520,105 800,75 C980,55 1100,70 1200,60 L1200,120 L0,120 Z"
+            opacity="0.3"
+          />
+        </svg>
+      </div>
+
       <div
         className={`md:hidden overflow-hidden border-t border-indigo/10 bg-white/95 backdrop-blur-sm shadow-soft transition-all duration-300 ease-out ${
           isMobileMenuOpen
