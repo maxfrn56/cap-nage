@@ -260,7 +260,7 @@ export default function PrestationsPage() {
         </Container>
 
         {/* Prestations Particulières — Bento : 1 grande à gauche, 3 à droite */}
-        <Container id="prestations-particulieres" className="mt-14 sm:mt-20 scroll-mt-28">
+        <Container id="prestations-particulieres" className="mt-14 sm:mt-20 scroll-mt-28 pb-8 sm:pb-0">
           <SectionHeader>Prestations Particulières</SectionHeader>
           <div className="mb-8 sm:mb-10 rounded-2xl bg-white/80 border border-indigo/10 p-6 sm:p-8 shadow-soft max-w-4xl space-y-6">
             <p className="font-raleway text-cyan leading-relaxed">
