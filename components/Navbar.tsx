@@ -69,8 +69,15 @@ export function Navbar() {
             height={40}
             className="h-10 w-auto"
           />
-          <span className="font-radley text-indigo text-xl sm:text-2xl tracking-tight">
-            CAP&apos;NAGE
+          <span className="flex flex-col leading-tight">
+            <span className="font-radley text-indigo text-xl sm:text-2xl tracking-tight">
+              CAP&apos;NAGE
+            </span>
+            <span className="font-raleway text-[10px] sm:text-[11px] text-cyan/90 tracking-wide">
+              Bien-être en
+              <br />
+              milieu aquatique
+            </span>
           </span>
         </Link>
 
