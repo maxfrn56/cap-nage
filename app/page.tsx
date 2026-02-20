@@ -143,9 +143,9 @@ export default function HomePage() {
               <p className="font-raleway text-cyan text-center text-lg sm:text-xl mt-4 max-w-md">
                 Bien-être en milieu aquatique
               </p>
-              <div className="flex flex-wrap gap-4 mt-8 justify-center">
-                <Button href="/reservation" variant="primary" size="lg">Réserver un créneau</Button>
-                <Button href="/prestations" variant="outline" size="lg">Choisissez votre activité</Button>
+              <div className="flex flex-col sm:flex-row gap-3 sm:gap-4 mt-8 justify-center w-full max-w-xs sm:max-w-none">
+                <Button href="/reservation" variant="primary" size="lg" className="w-full sm:w-auto">Réserver un créneau</Button>
+                <Button href="/prestations" variant="outline" size="lg" className="w-full sm:w-auto">Choisissez votre activité</Button>
               </div>
             </div>
             <motion.div style={{ y: whaleYRight }} className="hidden sm:flex flex-shrink-0 items-center justify-start w-32 md:w-44 lg:w-52">
@@ -222,7 +222,7 @@ export default function HomePage() {
                 Il n&apos;y a pas de limites, hormis celles que vous vous imposez&nbsp;!
               </p>
               <Button href="/qui-suis-je" variant="primary" size="md" className="w-fit mb-8">En savoir plus</Button>
-              <div className="relative w-full max-w-[220px] aspect-[3/4] overflow-hidden ml-auto mr-20 md:mr-28 mt-16 md:mt-20">
+              <div className="hidden md:block relative w-full max-w-[220px] aspect-[3/4] overflow-hidden ml-auto mr-20 md:mr-28 mt-16 md:mt-20">
                 <Image
                   src="/images/ali-sauveteuse.JPG"
                   alt="Alizée sauveteuse"

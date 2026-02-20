@@ -7,7 +7,7 @@ export function Footer() {
   return (
     <footer className="relative bg-cyan text-white overflow-hidden">
       <div
-        className="absolute inset-0 flex items-center justify-end pr-[5%] opacity-20 pointer-events-none"
+        className="absolute inset-0 hidden sm:flex items-center justify-end pr-[5%] opacity-20 pointer-events-none"
         aria-hidden
       >
         <Image
@@ -18,9 +18,9 @@ export function Footer() {
           className="w-[42vw] max-w-xl h-auto"
         />
       </div>
-      <div className="relative max-w-6xl mx-auto px-4 sm:px-6 lg:px-8 py-16">
-        <div className="flex flex-col md:flex-row items-center justify-between gap-8">
-          <div className="flex items-center gap-2">
+      <div className="relative max-w-6xl mx-auto px-4 sm:px-6 lg:px-8 py-12 sm:py-16">
+        <div className="flex flex-col md:flex-row items-center justify-between gap-6 sm:gap-8">
+          <div className="flex items-center gap-2 rounded-xl bg-white/10 px-4 py-2 sm:bg-transparent sm:px-0 sm:py-0">
             <Image
               src="/images/logo-footer.png"
               alt="Cap'Nage"
@@ -29,20 +29,20 @@ export function Footer() {
               className="h-8 w-auto"
             />
           </div>
-          <nav className="flex flex-wrap items-center justify-center gap-6">
-            <Link href="/prestations" className="font-raleway text-white/90 hover:text-white transition-colors">
+          <nav className="grid grid-cols-2 gap-2 w-full max-w-xs sm:max-w-none sm:w-auto sm:flex sm:flex-wrap sm:items-center sm:justify-center sm:gap-6">
+            <Link href="/prestations" className="font-raleway text-sm sm:text-base text-white text-center rounded-lg border border-white/20 bg-white/10 px-3 py-2 hover:bg-white/20 transition-colors sm:bg-transparent sm:border-0 sm:px-0 sm:py-0 sm:rounded-none sm:text-white/90 sm:hover:text-white">
               Prestations
             </Link>
-            <Link href="/evenements" className="font-raleway text-white/90 hover:text-white transition-colors">
+            <Link href="/evenements" className="font-raleway text-sm sm:text-base text-white text-center rounded-lg border border-white/20 bg-white/10 px-3 py-2 hover:bg-white/20 transition-colors sm:bg-transparent sm:border-0 sm:px-0 sm:py-0 sm:rounded-none sm:text-white/90 sm:hover:text-white">
               Évènements
             </Link>
-            <Link href="/qui-suis-je" className="font-raleway text-white/90 hover:text-white transition-colors">
+            <Link href="/qui-suis-je" className="font-raleway text-sm sm:text-base text-white text-center rounded-lg border border-white/20 bg-white/10 px-3 py-2 hover:bg-white/20 transition-colors sm:bg-transparent sm:border-0 sm:px-0 sm:py-0 sm:rounded-none sm:text-white/90 sm:hover:text-white">
               Qui suis-je
             </Link>
-            <Link href="/contact" className="font-raleway text-white/90 hover:text-white transition-colors">
+            <Link href="/contact" className="font-raleway text-sm sm:text-base text-white text-center rounded-lg border border-white/20 bg-white/10 px-3 py-2 hover:bg-white/20 transition-colors sm:bg-transparent sm:border-0 sm:px-0 sm:py-0 sm:rounded-none sm:text-white/90 sm:hover:text-white">
               Contact
             </Link>
-            <Link href="/reservation" className="font-raleway font-medium px-4 py-2 rounded-lg bg-white/20 hover:bg-white/30 transition-colors">
+            <Link href="/reservation" className="col-span-2 font-raleway font-medium text-center px-4 py-2 rounded-lg bg-white/20 hover:bg-white/30 transition-colors sm:col-span-1">
               Réserver
             </Link>
           </nav>
