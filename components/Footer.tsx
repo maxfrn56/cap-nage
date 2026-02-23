@@ -33,8 +33,8 @@ export function Footer() {
             <Link href="/prestations" className="font-raleway text-sm sm:text-base text-white text-center rounded-lg border border-white/20 bg-white/10 px-3 py-2 hover:bg-white/20 transition-colors sm:bg-transparent sm:border-0 sm:px-0 sm:py-0 sm:rounded-none sm:text-white/90 sm:hover:text-white">
               Prestations
             </Link>
-            <Link href="/evenements" className="font-raleway text-sm sm:text-base text-white text-center rounded-lg border border-white/20 bg-white/10 px-3 py-2 hover:bg-white/20 transition-colors sm:bg-transparent sm:border-0 sm:px-0 sm:py-0 sm:rounded-none sm:text-white/90 sm:hover:text-white">
-              Évènements
+            <Link href="/blog" className="font-raleway text-sm sm:text-base text-white text-center rounded-lg border border-white/20 bg-white/10 px-3 py-2 hover:bg-white/20 transition-colors sm:bg-transparent sm:border-0 sm:px-0 sm:py-0 sm:rounded-none sm:text-white/90 sm:hover:text-white">
+              Blog
             </Link>
             <Link href="/qui-suis-je" className="font-raleway text-sm sm:text-base text-white text-center rounded-lg border border-white/20 bg-white/10 px-3 py-2 hover:bg-white/20 transition-colors sm:bg-transparent sm:border-0 sm:px-0 sm:py-0 sm:rounded-none sm:text-white/90 sm:hover:text-white">
               Qui suis-je

@@ -7,7 +7,7 @@ import { usePathname } from "next/navigation";
 
 const links = [
   { href: "/prestations", label: "Prestations" },
-  { href: "/evenements", label: "Évènements" },
+  { href: "/blog", label: "Blog" },
   { href: "/qui-suis-je", label: "Qui suis-je" },
   { href: "/contact", label: "Contact" },
 ];
@@ -50,12 +50,8 @@ export function Navbar() {
       >
         <svg viewBox="0 0 1200 120" preserveAspectRatio="none" className="w-full h-full">
           <path
-            fill="rgba(255,255,255,0.95)"
+            fill="white"
             d="M0,0 H1200 V74 C1090,96 980,90 850,72 C710,52 590,84 470,102 C320,125 170,114 0,88 Z"
-          />
-          <path
-            fill="rgba(24,0,173,0.08)"
-            d="M0,0 H1200 V69 C1110,86 990,82 860,67 C720,52 600,78 500,90 C350,108 180,102 0,80 Z"
           />
         </svg>
       </div>
