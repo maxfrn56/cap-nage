@@ -49,13 +49,14 @@ export function Footer() {
         </div>
         <div className="mt-10 pt-8 border-t border-white/20 text-center font-raleway text-sm text-white/90">
           <p className="font-medium text-white">BOUCHET Alizée – Cap&apos;nage bien Être en milieu aquatique</p>
+          <p className="mt-2 text-white/80">
+            48 route Aritxague, 64600 Anglet – Pays Basque
+          </p>
           <p className="mt-2">
-            Par mail :{" "}
             <a href="mailto:capalizeey@gmail.com" className="hover:text-white transition-colors underline">
               capalizeey@gmail.com
             </a>
             {" · "}
-            Par téléphone :{" "}
             <a href="tel:+33651357550" className="hover:text-white transition-colors underline">
               06 51 35 75 50
             </a>

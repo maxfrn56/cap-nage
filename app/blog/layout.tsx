@@ -1,9 +1,9 @@
 import { Metadata } from "next";
 
 export const metadata: Metadata = {
-  title: "Blog",
+  title: "Blog – Conseils natation et bien-être aquatique",
   description:
-    "Actualités, conseils et articles Cap'Nage sur le bien-être en milieu aquatique. Découvrez nos publications mensuelles.",
+    "Blog Cap'Nage : conseils natation, bien-être aquatique, actualités. Articles mensuels sur l'apprentissage de la natation au Pays Basque.",
 };
 
 export default function BlogLayout({

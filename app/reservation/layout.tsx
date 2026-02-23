@@ -1,9 +1,9 @@
 import { Metadata } from "next";
 
 export const metadata: Metadata = {
-  title: "Réservation",
+  title: "Réservation – Réserver un cours de natation",
   description:
-    "Réservez votre créneau : cours de natation, aquafitness, yoga aquatique ou séance collective. Cap'Nage Loire-Atlantique.",
+    "Réservez votre cours de natation au Pays Basque. Séances particulières ou collectives à Anglet, Biarritz, Bayonne. Créneaux disponibles, réponse rapide.",
 };
 
 export default function ReservationLayout({
