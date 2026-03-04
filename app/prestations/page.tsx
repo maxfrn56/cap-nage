@@ -16,7 +16,7 @@ export const metadata: Metadata = {
 const subBlocsIndividuelles = [
   { title: "Découverte du milieu aquatique", image: "/images/decouverte-milieu-aqua.JPG" },
   { title: "Perfectionnement", image: "/images/perfectionnement.jpg" },
-  { title: "Préparations sportives", image: "/images/preparation-sportive.jpeg" },
+  { title: "Préparations sportives", image: "/images/preparation-sportive.jpg" },
   { title: "Sport Santé - Sport adapté", image: "/images/sport-sante.jpg" },
 ];
 

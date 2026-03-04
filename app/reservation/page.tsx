@@ -1,11 +1,12 @@
 "use client";
 
+import Script from "next/script";
 import { Container } from "@/components/Container";
 import { Section } from "@/components/Section";
 import { Title } from "@/components/Title";
 import { Button } from "@/components/Button";
 
-const CALENDLY_URL = process.env.NEXT_PUBLIC_CALENDLY_URL || "";
+const CALENDLY_URL = process.env.NEXT_PUBLIC_CALENDLY_URL || "https://calendly.com/cap-nage";
 
 const forfaits = [
   { sessions: 4, prix: 50, label: "4 sessions" },
@@ -22,18 +23,17 @@ export default function ReservationPage() {
             Réserver un créneau
           </Title>
         </Container>
-        {CALENDLY_URL ? (
-          <div className="w-full mt-8 -mb-4">
-            <iframe src={CALENDLY_URL} width="100%" height="100%" className="min-h-[700px] sm:min-h-[800px] lg:min-h-[900px] w-full border-0" title="Calendly – Réserver un créneau" />
-          </div>
-        ) : (
-          <Container className="py-16">
-            <div className="max-w-xl mx-auto text-center rounded-2xl bg-white/80 p-8 shadow-soft border-2 border-cream">
-              <p className="font-raleway text-cyan text-lg mb-4">Le calendrier de réservation sera affiché ici une fois le compte Calendly configuré.</p>
-              <p className="font-raleway text-cyan/80 text-sm">Ajoutez l&apos;URL de votre page Calendly dans .env.local avec la variable NEXT_PUBLIC_CALENDLY_URL.</p>
-            </div>
-          </Container>
-        )}
+        <div className="w-full mt-8 -mb-4 px-4 sm:px-6 lg:px-8 max-w-6xl mx-auto">
+          <div
+            className="calendly-inline-widget rounded-2xl overflow-hidden shadow-soft border border-indigo/10 bg-white"
+            data-url={CALENDLY_URL}
+            style={{ minWidth: "320px", height: "700px" }}
+          />
+        </div>
+        <Script
+          src="https://assets.calendly.com/assets/external/widget.js"
+          strategy="afterInteractive"
+        />
       </Section>
 
       <Section id="forfaits" variant="azur" animate className="pt-16">
