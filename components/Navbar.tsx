@@ -104,7 +104,7 @@ export function Navbar() {
             Réserver
           </Link>
           <a
-            href="https://instagram.com"
+            href="https://www.instagram.com/cap_nage/"
             target="_blank"
             rel="noopener noreferrer"
             aria-label="Instagram"
@@ -180,7 +180,7 @@ export function Navbar() {
                 Réserver
               </Link>
               <a
-                href="https://instagram.com"
+                href="https://www.instagram.com/cap_nage/"
                 target="_blank"
                 rel="noopener noreferrer"
                 aria-label="Instagram"

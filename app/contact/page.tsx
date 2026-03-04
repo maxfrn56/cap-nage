@@ -118,7 +118,7 @@ export default function ContactPage() {
                 <div className="mt-auto pt-4 border-t border-indigo/10">
                   <span className="font-raleway text-xs uppercase text-cyan/80 block mb-3">Réseaux sociaux</span>
                   <a
-                    href="https://instagram.com"
+                    href="https://www.instagram.com/cap_nage/"
                     target="_blank"
                     rel="noopener noreferrer"
                     aria-label="Instagram"
