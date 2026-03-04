@@ -251,6 +251,9 @@ export default function HomePage() {
             </Title>
           </Container>
           <PrestationsCarousel />
+          <p className="text-center font-raleway text-cyan text-base sm:text-lg mt-8 mb-4">
+            Possibilité de dispenser les cours en Français, Anglais, Allemand, Italien.
+          </p>
         </div>
       </Section>
 

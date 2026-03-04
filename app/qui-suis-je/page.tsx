@@ -171,7 +171,11 @@ export default function QuiSuisJePage() {
             <ul className="font-raleway text-cyan space-y-4">
               <li className="flex items-start gap-3">
                 <span className="mt-1.5 h-2 w-2 rounded-full bg-indigo shrink-0" />
-                <span>Diplôme d&apos;État de Maître-Nageur Sauveteur (BEESAN / BP JEPS AAN)</span>
+                <span>Diplôme d&apos;État de Maître-Nageur Sauveteur (LP AGOAPS mention natation STAPS de Nantes)</span>
+              </li>
+              <li className="flex items-start gap-3">
+                <span className="mt-1.5 h-2 w-2 rounded-full bg-indigo shrink-0" />
+                <span>Diplômée SLSGB – Formatrice PSC + PSE1 et 2</span>
               </li>
               <li className="flex items-start gap-3">
                 <span className="mt-1.5 h-2 w-2 rounded-full bg-indigo shrink-0" />

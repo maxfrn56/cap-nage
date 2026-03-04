@@ -29,6 +29,9 @@ export default function ReservationPage() {
             data-url={CALENDLY_URL}
             style={{ minWidth: "320px", height: "700px" }}
           />
+          <p className="text-center font-raleway text-cyan/90 text-sm mt-4">
+            Possibilité de dispenser les cours en Français, Anglais, Allemand, Italien.
+          </p>
         </div>
         <Script
           src="https://assets.calendly.com/assets/external/widget.js"
