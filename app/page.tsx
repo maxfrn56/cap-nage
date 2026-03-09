@@ -296,7 +296,7 @@ export default function HomePage() {
         </div>
       </Section>
 
-      <Section variant="azur" animate>
+      <Section variant="azur" animate className="overflow-x-hidden">
         <div ref={temoignagesRef} className="relative">
           <motion.div style={{ y: whaleTemoignagesL }} className="absolute left-2 md:left-8 top-8 w-16 md:w-24 opacity-30 pointer-events-none hidden sm:block">
             <Image src="/images/baleine-noir.svg" alt="" width={296} height={217} className="w-full h-auto -scale-x-100" aria-hidden />
@@ -309,33 +309,39 @@ export default function HomePage() {
               Témoignages
             </Title>
           </Container>
-          <div className="overflow-x-auto overflow-y-hidden pb-4 -mx-4 px-4 sm:-mx-6 sm:px-6 lg:-mx-8 lg:px-8 scroll-smooth snap-x snap-mandatory">
-            <div className="flex gap-6 lg:gap-8 items-stretch min-w-max px-4 sm:px-6 lg:px-8">
-              {temoignages.map((t, i) => (
-                <motion.blockquote
-                  key={`${t.author}-${i}`}
-                  initial={{ opacity: 0, y: 20 }}
-                  whileInView={{ opacity: 1, y: 0 }}
-                  viewport={{ once: true, margin: "-40px" }}
-                  transition={{ duration: 0.5, delay: i * 0.05 }}
-                  className="group relative flex flex-col rounded-2xl bg-white p-8 lg:p-10 shadow-soft border-l-4 border-indigo overflow-hidden transition-all duration-300 hover:shadow-soft-hover flex-shrink-0 w-[min(340px,85vw)] sm:w-[360px] snap-start"
-                >
-                  <span className="absolute top-6 right-6 font-radley text-7xl lg:text-8xl text-indigo/10 leading-none select-none" aria-hidden>
-                    "
-                  </span>
-                  <p className="font-raleway text-cyan text-base lg:text-lg leading-relaxed mb-8 relative z-10 pr-8">
-                    {t.quote}
-                  </p>
-                  <div className="mt-auto flex items-center gap-4 relative z-10">
-                    <span className="flex h-12 w-12 shrink-0 items-center justify-center rounded-full bg-indigo/10 text-indigo font-radley text-lg font-medium">
-                      {t.author.charAt(0)}
+          <div className="w-full overflow-hidden">
+            <div
+              className="temoignages-carousel overflow-x-auto overflow-y-hidden scroll-smooth snap-x snap-mandatory pb-6 pt-2"
+              style={{ scrollbarGutter: "stable" }}
+            >
+              <div className="flex gap-5 sm:gap-6 lg:gap-8 items-stretch pl-4 pr-4 sm:pl-6 sm:pr-6 lg:pl-8 lg:pr-8">
+                {temoignages.map((t, i) => (
+                  <motion.blockquote
+                    key={`${t.author}-${i}`}
+                    initial={{ opacity: 0, y: 16 }}
+                    whileInView={{ opacity: 1, y: 0 }}
+                    viewport={{ once: true, margin: "-40px" }}
+                    transition={{ duration: 0.45, delay: i * 0.05, ease: [0.22, 1, 0.36, 1] }}
+                    className="group relative flex flex-col flex-shrink-0 w-[280px] sm:w-[320px] lg:w-[340px] snap-start snap-always rounded-2xl bg-white/95 backdrop-blur-sm p-6 sm:p-8 shadow-soft border border-indigo/10 overflow-hidden transition-all duration-300 hover:shadow-soft-hover hover:border-indigo/20 hover:scale-[1.02]"
+                  >
+                    <div className="absolute top-0 right-0 w-24 h-24 bg-gradient-to-bl from-indigo/5 to-transparent rounded-bl-full" aria-hidden />
+                    <span className="absolute top-5 right-5 font-radley text-5xl sm:text-6xl text-indigo/10 leading-none select-none" aria-hidden>
+                      “
                     </span>
-                    <cite className="font-raleway text-indigo font-medium not-italic">
-                      {t.author}
-                    </cite>
-                  </div>
-                </motion.blockquote>
-              ))}
+                    <p className="font-raleway text-cyan text-sm sm:text-base leading-relaxed mb-6 relative z-10 pr-6">
+                      {t.quote}
+                    </p>
+                    <div className="mt-auto pt-4 border-t border-indigo/10 flex items-center gap-3 relative z-10">
+                      <span className="flex h-10 w-10 shrink-0 items-center justify-center rounded-full bg-indigo/10 text-indigo font-radley text-sm font-medium ring-2 ring-white">
+                        {t.author.charAt(0)}
+                      </span>
+                      <cite className="font-raleway text-indigo font-medium not-italic text-sm">
+                        {t.author}
+                      </cite>
+                    </div>
+                  </motion.blockquote>
+                ))}
+              </div>
             </div>
           </div>
         </div>
