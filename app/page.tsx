@@ -34,9 +34,13 @@ const valeurs = [
 ];
 
 const temoignages = [
-  { quote: "Un accompagnement bienveillant qui m'a redonné confiance dans l'eau. Je recommande vivement.", author: "Marie L." },
-  { quote: "Les séances enfants sont parfaites : ludiques et rassurantes. Mon fils a progressé en quelques semaines.", author: "Thomas D." },
-  { quote: "Le yoga aquatique est une révélation. Je me sens détendue et en harmonie après chaque séance.", author: "Sophie M." },
+  { quote: "Je suis sortie vraiment pas fatigué comparé à mon L de l'année dernière, la natation n'a rien à voir. Je commence enfin à savoir quand je suis dans le rouge et savoir gérer mes allures.", author: "Mathrieu, triathlète" },
+  { quote: "Louis (4 ans) avait beaucoup aimé les cours que vous lui aviez donnés à Vista santé. Il avait énormément progressé.", author: "Kévin" },
+  { quote: "Merci pour ta gentilesse et merci pour toute l'aide que tu m'a apportée en 2024.", author: "Nina" },
+  { quote: "Merci Alizée pour vos cours à ma fille Daphné et pour votre gentilesse ! Vous l'avez mise en confiance.", author: "Jean-Robert" },
+  { quote: "Merci Alizée pour ton cours d'aquagym ! Les adhérents ont beaucoup aimé ton cours.", author: "Christine" },
+  { quote: "Merci pour ces quelques leçons de natation, pour tes encouragements et ta patience.", author: "Matthieu" },
+  { quote: "Alizée est géniale, c'est exactement ce dont notre fils avait besoin. En seulement une semaine, il a énormément évolué.", author: "Mateja" },
 ];
 
 export default function HomePage() {

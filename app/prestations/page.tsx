@@ -39,7 +39,7 @@ const forfaitsIndividuelles = [
 ];
 
 const forfaitsCollectives = [
-  { sessions: 4, prix: 50, label: "4 sessions" },
+  { sessions: 4, prix: 40, label: "4 sessions" },
   { sessions: 8, prix: 80, label: "8 sessions" },
   { sessions: 12, prix: 120, label: "12 sessions" },
 ];
@@ -199,7 +199,7 @@ export default function PrestationsPage() {
             </p>
             <div>
               <p className="font-raleway text-cyan leading-relaxed mb-2">
-                Cap&apos;nage bien Être en milieu aquatique vous propose des cours d&apos;aquafitness&nbsp;! À domicile, jusqu&apos;à 10 personnes selon la taille de votre piscine. Plusieurs cours sont proposés, selon votre envie&nbsp;: aquagym, circuit training, aquaboxing. Cours de 45 minutes, 10&nbsp;€/personne.
+                Cap&apos;nage bien Être en milieu aquatique vous propose des cours d&apos;aquafitness&nbsp;! À domicile, jusqu&apos;à 10 personnes selon la taille de votre piscine. Plusieurs cours sont proposés, selon votre envie&nbsp;: aquagym, circuit training, aquaboxing. Cours de 45 minutes, 12&nbsp;€/personne.
               </p>
             </div>
             <div>
