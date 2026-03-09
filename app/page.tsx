@@ -308,37 +308,36 @@ export default function HomePage() {
             <Title as="h2" subtitle="Ils ont partagé leur expérience." align="center" className="mb-14 sm:mb-16">
               Témoignages
             </Title>
-            <div className="grid md:grid-cols-3 gap-6 lg:gap-8 items-stretch">
-              {temoignages.map((t, i) => {
-                const isFeatured = i === 1;
-                return (
-                  <motion.blockquote
-                    key={t.author}
-                    initial={{ opacity: 0, y: 20 }}
-                    whileInView={{ opacity: 1, y: 0 }}
-                    viewport={{ once: true, margin: "-40px" }}
-                    transition={{ duration: 0.5, delay: i * 0.1 }}
-                    className={`group relative flex flex-col rounded-2xl bg-white p-8 lg:p-10 shadow-soft border-l-4 border-indigo overflow-hidden transition-all duration-300 hover:shadow-soft-hover hover:-translate-y-1 ${isFeatured ? "md:-mt-4 md:mb-4 md:shadow-soft-hover md:border-indigo/90" : ""}`}
-                  >
-                    <span className="absolute top-6 right-6 font-radley text-7xl lg:text-8xl text-indigo/10 leading-none select-none" aria-hidden>
-                      "
-                    </span>
-                    <p className="font-raleway text-cyan text-base lg:text-lg leading-relaxed mb-8 relative z-10 pr-8">
-                      {t.quote}
-                    </p>
-                    <div className="mt-auto flex items-center gap-4 relative z-10">
-                      <span className="flex h-12 w-12 shrink-0 items-center justify-center rounded-full bg-indigo/10 text-indigo font-radley text-lg font-medium">
-                        {t.author.charAt(0)}
-                      </span>
-                      <cite className="font-raleway text-indigo font-medium not-italic">
-                        {t.author}
-                      </cite>
-                    </div>
-                  </motion.blockquote>
-                );
-              })}
-            </div>
           </Container>
+          <div className="overflow-x-auto overflow-y-hidden pb-4 -mx-4 px-4 sm:-mx-6 sm:px-6 lg:-mx-8 lg:px-8 scroll-smooth snap-x snap-mandatory">
+            <div className="flex gap-6 lg:gap-8 items-stretch min-w-max px-4 sm:px-6 lg:px-8">
+              {temoignages.map((t, i) => (
+                <motion.blockquote
+                  key={`${t.author}-${i}`}
+                  initial={{ opacity: 0, y: 20 }}
+                  whileInView={{ opacity: 1, y: 0 }}
+                  viewport={{ once: true, margin: "-40px" }}
+                  transition={{ duration: 0.5, delay: i * 0.05 }}
+                  className="group relative flex flex-col rounded-2xl bg-white p-8 lg:p-10 shadow-soft border-l-4 border-indigo overflow-hidden transition-all duration-300 hover:shadow-soft-hover flex-shrink-0 w-[min(340px,85vw)] sm:w-[360px] snap-start"
+                >
+                  <span className="absolute top-6 right-6 font-radley text-7xl lg:text-8xl text-indigo/10 leading-none select-none" aria-hidden>
+                    "
+                  </span>
+                  <p className="font-raleway text-cyan text-base lg:text-lg leading-relaxed mb-8 relative z-10 pr-8">
+                    {t.quote}
+                  </p>
+                  <div className="mt-auto flex items-center gap-4 relative z-10">
+                    <span className="flex h-12 w-12 shrink-0 items-center justify-center rounded-full bg-indigo/10 text-indigo font-radley text-lg font-medium">
+                      {t.author.charAt(0)}
+                    </span>
+                    <cite className="font-raleway text-indigo font-medium not-italic">
+                      {t.author}
+                    </cite>
+                  </div>
+                </motion.blockquote>
+              ))}
+            </div>
+          </div>
         </div>
       </Section>
 
