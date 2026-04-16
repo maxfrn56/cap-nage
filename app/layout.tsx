@@ -106,7 +106,6 @@ export default function RootLayout({
               telephone: "+33651357550",
               address: {
                 "@type": "PostalAddress",
-                streetAddress: "48 route Aritxague",
                 addressLocality: "Anglet",
                 postalCode: "64600",
                 addressRegion: "Pyrénées-Atlantiques",
