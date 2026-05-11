@@ -127,7 +127,7 @@ export default function PrestationsPage() {
               Que ce soit pour une première approche du milieu aquatique, aussi bien en piscine qu&apos;en océan, ou bien un objectif de performance. Mais aussi pour du sport santé ou du sport adapté, Cap&apos;nage bien Être en milieu aquatique s&apos;adapte à vos besoins.
             </p>
             <p className="font-raleway text-cyan leading-relaxed">
-              Cours de 45 minutes à domicile, chez des amis, parents, grands-parents, piscine municipale ou à l&apos;océan.
+              Cours de 45 minutes à domicile, chez des amis, parents, grands-parents ou à l&apos;océan.
             </p>
           </div>
           <div className="grid grid-cols-1 lg:grid-cols-2 gap-4 sm:gap-6 lg:gap-6">
