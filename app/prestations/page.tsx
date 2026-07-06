@@ -33,7 +33,18 @@ const subBlocsParticulieres = [
   { title: "Surveillance lors d'événement familial", image: "/images/surveillance.JPG" },
 ];
 
-const forfaitsIndividuelles = [
+type ForfaitIndividuel =
+  | {
+      label: string;
+      tarifs: { prix: number; duree: string }[];
+    }
+  | {
+      label: string;
+      description: string;
+      contactOnly: true;
+    };
+
+const forfaitsIndividuelles: ForfaitIndividuel[] = [
   {
     label: "Un cours particulier",
     tarifs: [
@@ -178,11 +189,11 @@ export default function PrestationsPage() {
                   <p className="font-raleway text-cyan text-sm uppercase tracking-wide">
                     {f.label}
                   </p>
-                  {"contactOnly" in f && f.contactOnly ? (
+                  {"contactOnly" in f ? (
                     <p className="font-raleway text-cyan text-base sm:text-lg leading-relaxed mt-4">
                       {f.description}
                     </p>
-                  ) : "tarifs" in f && f.tarifs ? (
+                  ) : (
                     <div className="mt-4 space-y-3">
                       {f.tarifs.map((t) => (
                         <p key={t.duree} className="font-radley text-2xl sm:text-3xl text-indigo">
@@ -193,17 +204,6 @@ export default function PrestationsPage() {
                         </p>
                       ))}
                     </div>
-                  ) : (
-                    <>
-                      <p className="font-radley text-4xl text-indigo mt-2">
-                        {f.prix}€
-                      </p>
-                      {f.sessions > 1 && (
-                        <p className="font-raleway text-cyan text-sm mt-1">
-                          soit {f.prix! / f.sessions}€ / séance
-                        </p>
-                      )}
-                    </>
                   )}
                   <Button
                     href="/contact"
