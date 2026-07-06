@@ -34,8 +34,18 @@ const subBlocsParticulieres = [
 ];
 
 const forfaitsIndividuelles = [
-  { label: "Un cours particulier", prix: 35, sessions: 1 },
-  { label: "5 séances", prix: 150, sessions: 5 },
+  {
+    label: "Un cours particulier",
+    tarifs: [
+      { prix: 25, duree: "30 min" },
+      { prix: 35, duree: "45 min" },
+    ],
+  },
+  {
+    label: "Forfait ou à la carte",
+    description: "Possibilité de forfait 5 cours ou cours à la carte",
+    contactOnly: true,
+  },
 ];
 
 const forfaitsCollectives = [
@@ -127,7 +137,7 @@ export default function PrestationsPage() {
               Que ce soit pour une première approche du milieu aquatique, aussi bien en piscine qu&apos;en océan, ou bien un objectif de performance. Mais aussi pour du sport santé ou du sport adapté, Cap&apos;nage bien Être en milieu aquatique s&apos;adapte à vos besoins.
             </p>
             <p className="font-raleway text-cyan leading-relaxed">
-              Cours de 45 minutes à domicile, chez des amis, parents, grands-parents ou à l&apos;océan.
+              Selon l&apos;âge, la durée peut aller de 30 à 45 minutes. Cours à domicile, chez des amis, parents, grands-parents ou à l&apos;océan.
             </p>
           </div>
           <div className="grid grid-cols-1 lg:grid-cols-2 gap-4 sm:gap-6 lg:gap-6">
@@ -168,13 +178,32 @@ export default function PrestationsPage() {
                   <p className="font-raleway text-cyan text-sm uppercase tracking-wide">
                     {f.label}
                   </p>
-                  <p className="font-radley text-4xl text-indigo mt-2">
-                    {f.prix}€
-                  </p>
-                  {f.sessions > 1 && (
-                    <p className="font-raleway text-cyan text-sm mt-1">
-                      soit {f.prix / f.sessions}€ / séance
+                  {"contactOnly" in f && f.contactOnly ? (
+                    <p className="font-raleway text-cyan text-base sm:text-lg leading-relaxed mt-4">
+                      {f.description}
                     </p>
+                  ) : "tarifs" in f && f.tarifs ? (
+                    <div className="mt-4 space-y-3">
+                      {f.tarifs.map((t) => (
+                        <p key={t.duree} className="font-radley text-2xl sm:text-3xl text-indigo">
+                          {t.prix}€{" "}
+                          <span className="font-raleway text-cyan text-base sm:text-lg font-normal">
+                            — {t.duree}
+                          </span>
+                        </p>
+                      ))}
+                    </div>
+                  ) : (
+                    <>
+                      <p className="font-radley text-4xl text-indigo mt-2">
+                        {f.prix}€
+                      </p>
+                      {f.sessions > 1 && (
+                        <p className="font-raleway text-cyan text-sm mt-1">
+                          soit {f.prix! / f.sessions}€ / séance
+                        </p>
+                      )}
+                    </>
                   )}
                   <Button
                     href="/contact"

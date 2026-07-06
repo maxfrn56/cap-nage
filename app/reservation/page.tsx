@@ -1,6 +1,7 @@
 "use client";
 
 import Script from "next/script";
+import Link from "next/link";
 import { Container } from "@/components/Container";
 import { Section } from "@/components/Section";
 import { Title } from "@/components/Title";
@@ -9,7 +10,7 @@ import { Button } from "@/components/Button";
 const CALENDLY_URL = process.env.NEXT_PUBLIC_CALENDLY_URL || "https://calendly.com/cap-nage";
 
 const forfaits = [
-  { sessions: 4, prix: 50, label: "4 sessions" },
+  { sessions: 4, prix: 40, label: "4 sessions" },
   { sessions: 8, prix: 80, label: "8 sessions" },
   { sessions: 12, prix: 120, label: "12 sessions" },
 ];
@@ -41,8 +42,11 @@ export default function ReservationPage() {
 
       <Section id="forfaits" variant="azur" animate className="pt-16">
         <Container>
-          <Title as="h2" subtitle="Choisissez le forfait qui vous correspond.">
-            Forfaits
+          <Title
+            as="h2"
+            subtitle="Forfaits pour les cours collectifs aquasport (aquagym, circuit training, aquaboxing)."
+          >
+            Forfaits cours collectifs
           </Title>
           <div className="grid sm:grid-cols-3 gap-6 mt-12">
             {forfaits.map((f) => (
@@ -70,6 +74,13 @@ export default function ReservationPage() {
               </div>
             ))}
           </div>
+          <p className="text-center font-raleway text-cyan/80 text-xs sm:text-sm mt-8 max-w-2xl mx-auto leading-relaxed">
+            Pour les cours particuliers, les prestations sur mesure ou toute autre demande, le tarif peut être adapté selon votre besoin.{" "}
+            <Link href="/contact" className="text-indigo hover:text-indigo/80 underline transition-colors">
+              Contactez-moi
+            </Link>{" "}
+            pour un devis personnalisé.
+          </p>
         </Container>
       </Section>
     </>
