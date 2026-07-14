@@ -17,25 +17,29 @@ export async function POST(request: Request) {
 
   try {
     const body = await request.json();
-    const { prenom, nom, email, message } = body as {
+    const { prenom, nom, email, telephone, message } = body as {
       prenom?: string;
       nom?: string;
       email?: string;
+      telephone?: string;
       message?: string;
     };
 
     if (!prenom?.trim() || !nom?.trim() || !email?.trim() || !message?.trim()) {
       return NextResponse.json(
-        { error: "Tous les champs sont requis." },
+        { error: "Tous les champs obligatoires doivent être remplis." },
         { status: 400 }
       );
     }
+
+    const tel = telephone?.trim() ?? "";
 
     const html = `
       <h2>Nouveau message depuis le formulaire Cap'Nage</h2>
       <p><strong>Prénom :</strong> ${escapeHtml(prenom)}</p>
       <p><strong>Nom :</strong> ${escapeHtml(nom)}</p>
       <p><strong>Email :</strong> ${escapeHtml(email)}</p>
+      ${tel ? `<p><strong>Téléphone :</strong> ${escapeHtml(tel)}</p>` : ""}
       <p><strong>Message :</strong></p>
       <p>${escapeHtml(message).replace(/\n/g, "<br>")}</p>
     `;

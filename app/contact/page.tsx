@@ -31,6 +31,7 @@ export default function ContactPage() {
       prenom: (form.elements.namedItem("prenom") as HTMLInputElement).value,
       nom: (form.elements.namedItem("nom") as HTMLInputElement).value,
       email: (form.elements.namedItem("email") as HTMLInputElement).value,
+      telephone: (form.elements.namedItem("telephone") as HTMLInputElement).value,
       message: (form.elements.namedItem("message") as HTMLTextAreaElement).value,
     };
     try {
@@ -173,17 +174,33 @@ export default function ContactPage() {
                       />
                     </div>
                   </div>
-                  <div>
-                    <label htmlFor="email" className="block font-raleway font-medium text-cyan mb-2">
-                      Email
-                    </label>
-                    <input
-                      id="email"
-                      name="email"
-                      type="email"
-                      required
-                      className="w-full px-4 py-3 rounded-xl border-2 border-azur/40 bg-white text-cyan font-raleway focus:border-indigo focus:outline-none focus:ring-2 focus:ring-indigo/20 transition-colors"
-                    />
+                  <div className="grid sm:grid-cols-2 gap-6">
+                    <div>
+                      <label htmlFor="email" className="block font-raleway font-medium text-cyan mb-2">
+                        Email
+                      </label>
+                      <input
+                        id="email"
+                        name="email"
+                        type="email"
+                        required
+                        className="w-full px-4 py-3 rounded-xl border-2 border-azur/40 bg-white text-cyan font-raleway focus:border-indigo focus:outline-none focus:ring-2 focus:ring-indigo/20 transition-colors"
+                      />
+                    </div>
+                    <div>
+                      <label htmlFor="telephone" className="block font-raleway font-medium text-cyan mb-2">
+                        Téléphone
+                        <span className="font-normal text-cyan/70"> (facultatif)</span>
+                      </label>
+                      <input
+                        id="telephone"
+                        name="telephone"
+                        type="tel"
+                        autoComplete="tel"
+                        placeholder="06 12 34 56 78"
+                        className="w-full px-4 py-3 rounded-xl border-2 border-azur/40 bg-white text-cyan font-raleway focus:border-indigo focus:outline-none focus:ring-2 focus:ring-indigo/20 transition-colors"
+                      />
+                    </div>
                   </div>
                   <div>
                     <label htmlFor="message" className="block font-raleway font-medium text-cyan mb-2">
